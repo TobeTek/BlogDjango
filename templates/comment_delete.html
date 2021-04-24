@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	{% if user.id == comment.author.id %}
+	<form action= "" method="post">{% csrf_token %}
+	<p>Are you sure you want to delete "{{comment}}"</p>
+	<button type="submit" class="btn btn-warning">Delete Post</button>
+	{% else %}
+	<p>You are not allowed to delete comment</p>
+	{% endif %}
+</form>
+{% endblock content %}

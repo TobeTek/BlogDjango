@@ -1,0 +1,18 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+	{% for post in object_list %}
+		
+		<div class= 'block'>
+			<h2><a href= "{% url 'post_detail' post.pk %}">{{ post.title}}</a></h2>
+			<body>{{ post.body }}</body>
+		{% if post.comments.all.count > 0 %}
+		<br><small>Total Comments:  {{post.comments.all.count}}</small>
+		{% else %}
+		<br><small>No comments..</small>
+		{% endif %}
+		</div>
+		
+	{% endfor %}
+{% endblock content %}
