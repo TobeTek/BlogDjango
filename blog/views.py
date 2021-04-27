@@ -33,7 +33,7 @@ class CreateCommentView(CreateView):
 	model = Comment
 	template_name = 'comment_create.html'
 	success_url = reverse_lazy('home')
-	fields = '__all__'
+	fields = ['post','comment', 'author']
 
 class DeleteCommentView(DeleteView):
 	model= Comment
